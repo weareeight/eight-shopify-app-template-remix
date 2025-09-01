@@ -20,7 +20,19 @@ Before you begin, you'll need the following:
 
 ### Setup
 
-If you used the CLI to create the template, you can skip this section.
+To create a new app, use `bun` to create a new repo out of this template:
+
+```shell
+bun create github.com/weareeight/eight-shopify-app-template-remix <application-name>
+```
+
+Then switch to the newly created directory:
+
+```shell
+cd <application-name>
+```
+
+Double check you have the dependencies installed:
 
 Using bun:
 
