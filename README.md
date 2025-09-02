@@ -17,6 +17,7 @@ Before you begin, you'll need the following:
 1. **Bun**: [Download and install](https://bun.sh) it if you haven't already.
 2. **Shopify Partner Account**: [Create an account](https://partners.shopify.com/signup) if you don't have one.
 3. **Test Store**: Set up either a [development store](https://help.shopify.com/en/partners/dashboard/development-stores#create-a-development-store) or a [Shopify Plus sandbox store](https://help.shopify.com/en/partners/dashboard/managing-stores/plus-sandbox-store) for testing your app.
+4. **Zellij** (optional): [Download and install](https://zellij.dev) for better display of the development server and database.
 
 ### Setup
 
@@ -42,15 +43,25 @@ bun install
 
 ### Local Development
 
+Create `.env` file with following content:
+
+```
+DATABASE_URL=postgres://postgres:devpostgres@localhost:26099/db
+```
+
 Using bun:
 
 ```shell
 bun run dev
 ```
 
+When running this for the first time, you need to create a new Shopify app or connect it to a existing app. Follow the wizard.
+
 Press P to open the URL to your app. Once you click install, you can start development.
 
 Local development is powered by [the Shopify CLI](https://shopify.dev/docs/apps/tools/cli). It logs into your partners account, connects to an app, provides environment variables, updates remote config, creates a tunnel and provides commands to generate extensions.
+
+
 
 ### Authenticating and querying data
 

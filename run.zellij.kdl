@@ -1,0 +1,15 @@
+layout {
+    pane split_direction="vertical" {
+        pane name="dev" size="70%" focus=true {
+            command "bun"
+            args "run" "dev"
+        }
+        pane name="database" {
+            command "bun"
+            args "run" "dev:db"
+        }
+    }
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}

@@ -4,6 +4,8 @@
   "scripts": {
     "build": "remix vite:build",
     "dev": "shopify app dev",
+    "dev:local": "zellij --layout run.zellij.kdl",
+    "dev:db": "./scripts/start-db.sh",
     "config:link": "shopify app config link",
     "generate": "shopify app generate",
     "deploy": "shopify app deploy",
