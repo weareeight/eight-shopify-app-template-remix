@@ -5,6 +5,7 @@
     "build": "react-router build",
     "dev": "shopify app dev",
     "dev:local": "zellij --layout run.zellij.kdl",
+    "dev:start": "react-router dev",
     "dev:db": "./scripts/start-db.sh",
     "config:link": "shopify app config link",
     "generate": "shopify app generate",

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useAppBridge } from '@shopify/app-bridge-react';
+import { TitleBar, useAppBridge } from '@shopify/app-bridge-react';
 import { boundary } from '@shopify/shopify-app-react-router/server';
 import type { ActionFunctionArgs, HeadersFunction, LoaderFunctionArgs } from 'react-router';
 import { useFetcher } from 'react-router';
@@ -101,11 +101,11 @@ export default function Index() {
 
     return (
         <s-page>
-            <ui-title-bar title="React Router app template">
+            <TitleBar title="React Router app template">
                 <button type="button" variant="primary" onClick={generateProduct}>
                     Generate a product
                 </button>
-            </ui-title-bar>
+            </TitleBar>
 
             <s-section heading="Congrats on creating a new Shopify app 🎉">
                 <s-paragraph>
