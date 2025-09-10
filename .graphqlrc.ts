@@ -1,17 +1,22 @@
 import fs from "fs";
-import { LATEST_API_VERSION } from "@shopify/shopify-api";
+import { SHOPIFY_API_VERSION } from "./app/constants";
 import { shopifyApiProject, ApiType } from "@shopify/api-codegen-preset";
 import type { IGraphQLConfig } from "graphql-config";
+
+const shopifyApi = shopifyApiProject({
+  apiType: ApiType.Admin,
+  apiVersion: SHOPIFY_API_VERSION,
+  documents: ["./app/**/*.{js,ts,jsx,tsx}", "./app/.server/**/*.{js,ts,jsx,tsx}"],
+  outputDir: "./app/types",
+  declarations: false,
+});
+
+console.log(JSON.stringify(shopifyApi, null, 2));
 
 function getConfig() {
   const config: IGraphQLConfig = {
     projects: {
-      default: shopifyApiProject({
-        apiType: ApiType.Admin,
-        apiVersion: LATEST_API_VERSION,
-        documents: ["./app/**/*.{js,ts,jsx,tsx}", "./app/.server/**/*.{js,ts,jsx,tsx}"],
-        outputDir: "./app/types",
-      }),
+      default: shopifyApi,
     },
   };
 
