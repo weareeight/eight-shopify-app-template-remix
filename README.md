@@ -136,30 +136,6 @@ When you're ready to set up your app in production, you can follow [our deployme
 
 When you reach the step for [setting up environment variables](https://shopify.dev/docs/apps/deployment/web#set-env-vars), you also need to set the variable `NODE_ENV=production`.
 
-### Hosting on Vercel
-
-Using the Vercel Preset is recommended when hosting your Shopify Remix app on Vercel. You'll also want to ensure imports that would normally come from `@remix-run/node` are imported from `@vercel/remix` instead. Learn more about hosting Remix apps on Vercel [here](https://vercel.com/docs/frameworks/remix).
-
-```diff
-// vite.config.ts
-import { vitePlugin as remix } from "@remix-run/dev";
-import { defineConfig, type UserConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
-+ import { vercelPreset } from '@vercel/remix/vite';
-
-installGlobals();
-
-export default defineConfig({
-  plugins: [
-    remix({
-      ignoredRouteFiles: ["**/.*"],
-+     presets: [vercelPreset()],
-    }),
-    tsconfigPaths(),
-  ],
-});
-```
-
 ## Troubleshooting
 
 ### Database tables don't exist
@@ -176,9 +152,9 @@ You need to create the database for Prisma. Run the `setup` script in `package.j
 
 Embedded Shopify apps must maintain the user session, which can be tricky inside an iFrame. To avoid issues:
 
-1. Use `Link` from `@remix-run/react` or `@shopify/polaris`. Do not use `<a>`.
-2. Use the `redirect` helper returned from `authenticate.admin`. Do not use `redirect` from `@remix-run/node`
-3. Use `useSubmit` or `<Form/>` from `@remix-run/react`. Do not use a lowercase `<form/>`.
+1. Use `Link` from `react-router` or `@shopify/polaris`. Do not use `<a>`.
+2. Use the `redirect` helper returned from `authenticate.admin`. Do not use `redirect` from `react-router`
+3. Use `useSubmit` or `<Form/>` from `react-router`. Do not use a lowercase `<form/>`.
 
 This only applies if your app is embedded, which it will be by default.
 
